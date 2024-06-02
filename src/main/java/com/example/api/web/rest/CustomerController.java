@@ -42,7 +42,6 @@ public class CustomerController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
     }
 
-    //http://localhost:8080/customers/page-customers?page=0&size=10
     @GetMapping("/page-customers")
     public ResponseEntity<Page<Customer>> getCustomers(
             @RequestParam(defaultValue = "0") int page,
@@ -62,6 +61,4 @@ public class CustomerController {
         return service.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found"));
     }
-
-
 }
